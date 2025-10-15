@@ -9,7 +9,7 @@ public interface ArtikelRepository extends JpaRepository<Artikel, Long> {
     List<Artikel> findByNaamContainingOrderByNaam(String naam);
 
     @Query(
-        "select a from Artikel a where a.verkoopprijs - a.aankoopprijs >= ?1 order by a.verkoopprijs"
+        "from Artikel where verkoopprijs - aankoopprijs >= :minimum order by verkoopprijs"
     )
-    List<Artikel> findByVerkoopprijs(BigDecimal minimumWinst);
+    List<Artikel> findByWinstMinstens(BigDecimal minimum);
 }

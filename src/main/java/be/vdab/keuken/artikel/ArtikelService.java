@@ -24,8 +24,8 @@ public class ArtikelService {
         return artikelRepository.findByNaamContainingOrderByNaam(naam);
     }
 
-    List<Artikel> findByVerkoopprijs(BigDecimal minimumVerkoopprijs) {
-        return artikelRepository.findByVerkoopprijs(minimumVerkoopprijs);
+    List<Artikel> findByMinimumWinst(BigDecimal minimum) {
+        return artikelRepository.findByWinstMinstens(minimum);
     }
 
     @Transactional

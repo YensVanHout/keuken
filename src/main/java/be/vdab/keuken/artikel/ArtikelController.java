@@ -27,18 +27,14 @@ public class ArtikelController {
             .orElseThrow(ArtikelNietGevondenException::new);
     }
 
-    @GetMapping(params = "naam")
-    public List<Artikel> searchArtikels(
-        @RequestParam(required = false) String naam
-    ) {
-        return artikelService.findByNaamContaining(naam);
+    @GetMapping(params = "naamBevat")
+    List<Artikel> findByNaamBevat(String naamBevat) {
+        return artikelService.findByNaamContaining(naamBevat);
     }
 
-    @GetMapping(params = "minimumVerkoopprijs")
-    public List<Artikel> findByVerkoopprijs(
-        @RequestParam BigDecimal minimumVerkoopprijs
-    ) {
-        return artikelService.findByVerkoopprijs(minimumVerkoopprijs);
+    @GetMapping(params = "minimumWinst")
+    List<Artikel> findByMinimumWinst(BigDecimal minimumWinst) {
+        return artikelService.findByMinimumWinst(minimumWinst);
     }
 
     @PostMapping
