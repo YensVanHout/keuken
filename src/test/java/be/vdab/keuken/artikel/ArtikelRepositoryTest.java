@@ -2,18 +2,17 @@ package be.vdab.keuken.artikel;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.test.context.jdbc.Sql;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @DataJpaTest
 @Sql("/artikels.sql")
 class ArtikelRepositoryTest {
     private final ArtikelRepository artikelRepository;
     private final JdbcClient jdbcClient;
+
     ArtikelRepositoryTest(ArtikelRepository artikelRepository, JdbcClient jdbcClient) {
         this.artikelRepository = artikelRepository;
         this.jdbcClient = jdbcClient;
